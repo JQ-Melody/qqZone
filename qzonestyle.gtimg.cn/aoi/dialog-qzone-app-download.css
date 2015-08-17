@@ -1,0 +1,89 @@
+.dialog-qzone-app-download {
+    position: relative;
+    padding: 8px 0 15px 0
+}
+
+.dialog-qzone-app-download .close {
+    padding: 4px;
+    position: absolute;
+    top: 10px;
+    right: 10px
+}
+
+.dialog-qzone-app-download .title {
+    width: 295px;
+    height: 62px;
+    overflow: hidden;
+    background-image: url(sprite/dialog-qzone-app-download-man150205175833.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    margin-left: 18px
+}
+
+.dialog-qzone-app-download .title .txt {
+    position: absolute;
+    top: -9999px
+}
+
+.dialog-qzone-app-download .content {
+    padding: 20px 0 0 0
+}
+
+.dialog-qzone-app-download .actions-panel {
+    padding: 3px 26px 0 30px;
+    border-right: 1px solid #e6e6e6
+}
+
+.dialog-qzone-app-download .others-panel {
+    padding: 3px 0 0 30px
+}
+
+.dialog-qzone-app-download .arcode-box {
+    width: 100px;
+    height: 100px;
+    overflow: hidden
+}
+
+.dialog-qzone-app-download .btn-download {
+    display: block;
+    width: 106px;
+    height: 32px;
+    background-repeat: no-repeat;
+    margin-bottom: 10px
+}
+
+.dialog-qzone-app-download .btn-android {
+    background-image: url(sprite/dialog-qzone-app-download-man150205175833.png);
+    background-position: -296px 0
+}
+
+.dialog-qzone-app-download .btn-ios {
+    background-image: url(sprite/dialog-qzone-app-download-man150205175833.png);
+    background-position: -296px -33px
+}
+
+.dialog-qzone-app-download .links-box {
+    padding: 4px 0 0 0;
+    text-align: center;
+    font-size: 0
+}
+
+.dialog-qzone-app-download .links-box .item {
+    display: inline-block;
+    *zoom:1;*display: inline;
+    font-size: 12px;
+    vertical-align: top;
+    color: #5d7895
+}
+
+.dialog-qzone-app-download .links-box .split {
+    height: 12px;
+    width: 1px;
+    background-color: #e0e0e0;
+    margin: 3px 7px 0
+}
+#CssGaga {
+    content: "150205175837,man,326"
+}
+
+/*  |xGv00|f2dac0404f35f3979205c57025f5366d */
