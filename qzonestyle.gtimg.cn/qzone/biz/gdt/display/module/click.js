@@ -5,9 +5,9 @@
     GDTClick.event = {getEvent: function(evt) {
             var evt = window.event || evt || null, c, ct = 0;
             if (!evt) {
-                c = arguments.callee;
+                c = arguments.callee;  //指向的是当前的函数的引用
                 while (c && ct < 10) {
-                    if (c.arguments && (evt = c.arguments[0]) && (typeof (evt.button) != "undefined" && typeof (evt.ctrlKey) != "undefined")) {
+                    if (c.arguments && (evt = c.arguments[0]) && (typeof (evt.button) != "undefined" && typeof (evt.ctrlKey) != "undefined")) {  //c.arguments[0]当前函数实参的第一个值
                         break;
                     }
                     ++ct;
@@ -16,6 +16,7 @@
             }
             return evt;
         }};
+    //Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()这种方法能够得到obj的实际类型，如array、object、（string、number、null、undefined、boolean）后面五个是基本数据类型
     GDTClick.getType = function(obj) {
         return obj === null ? 'null' : (obj === undefined ? 'undefined' : Object.prototype.toString.call(obj).slice(8, -1).toLowerCase());
     };
@@ -33,6 +34,7 @@
                 a.call(b, d[f], f);
         }
     };
+    //这里的JSONToString实现方法字符串拼接，
     GDTClick.JSONToString = function(obj) {
         if (typeof JSON != 'undefined' && JSON.stringify) {
             return JSON.stringify(obj);
@@ -44,7 +46,7 @@
             str += bstart;
             GDTClick.each(obj, function(v, k) {
                 var substr = "";
-                if (otype != 'array') {
+                if (otype != 'array') {  //外层对象如果不是数组则是object对象，所以需要先拼上key，后面再拼上value
                     substr = "\"" + k + "\":";
                 }
                 type = GDTClick.getType(v);
@@ -54,24 +56,24 @@
                     substr += v;
                 } else if (type == 'undefined') {
                     substr += type;
-                } else if (type == 'object') {
+                } else if (type == 'object') {  //当它的value是一个object时，继续调用自己，先拼好这个对象里的值，类似深度优先。
                     substr += GDTClick.JSONToString(v);
                 }
                 arr.push(substr);
             });
             str += arr.join(',');
             str += bend;
-            return str;
+            return str; 
         }
     };
     GDTClick.getTime = function() {
-        return +new Date();
+        return +new Date();  //获取当前时间并转换成number类型，相当于Number(new Date());
     };
     GDTClick.dom = {get: function(e) {
             return (typeof (e) == "string") ? document.getElementById(e) : e;
         },getStyle: function(el, property) {
             el = GDTClick.dom.get(el);
-            if (!el || el.nodeType == 9) {
+            if (!el || el.nodeType == 9) {  //el.nodeType == 9代表整个文档（DOM 树的根节点）
                 return null;
             }
             var w3cMode = document.defaultView && document.defaultView.getComputedStyle, computed = !w3cMode ? null : document.defaultView.getComputedStyle(el, ''), value = "";
